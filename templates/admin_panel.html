@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Admin Panel</title>
+</head>
+<body>
+    <h1>Admin Dashboard</h1>
+    <h2>Doctors' Availability</h2>
+    <ul>
+        {% for slot in availability %}
+            <li>Doctor ID: {{ slot['doctor_id'] }} - {{ slot['start_time'] }} to {{ slot['end_time'] }}</li>
+        {% endfor %}
+    </ul>
+    <form method="POST" action="/add_note">
+        <label>Doctor ID:</label>
+        <input type="text" name="doctor_id" required>
+        <br>
+        <label>Note:</label>
+        <textarea name="note" required></textarea>
+        <br>
+        <button type="submit">Add Note</button>
+    </form>
+    <a href="/logout">Logout</a>
+</body>
+</html>

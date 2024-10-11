@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Doctor Dashboard</title>
+</head>
+<body>
+    <h1>Welcome, {{ session['username'] }}</h1>
+    <h2>Your Availability</h2>
+    <ul>
+        {% for slot in availability %}
+            <li>{{ slot['start_time'] }} to {{ slot['end_time'] }}</li>
+        {% endfor %}
+    </ul>
+    <a href="/set_availability">Set Availability</a>
+    <a href="/logout">Logout</a>
+</body>
+</html>
